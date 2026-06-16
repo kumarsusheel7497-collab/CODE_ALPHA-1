@@ -16,10 +16,7 @@ Algorithm
 Random Forest Classifier
 
 CODE
-# ==========================================
-# CODEALPHA TASK 1
-# CREDIT SCORING MODEL
-# ==========================================
+
 
 import pandas as pd
 import numpy as np
@@ -37,9 +34,7 @@ from sklearn.metrics import (
     ConfusionMatrixDisplay
 )
 
-# ==========================================
-# CREATE SAMPLE CREDIT DATASET
-# ==========================================
+
 
 X, y = make_classification(
     n_samples=1000,
@@ -49,9 +44,7 @@ X, y = make_classification(
     random_state=42
 )
 
-# ==========================================
-# SPLIT DATA
-# ==========================================
+
 
 X_train, X_test, y_train, y_test = train_test_split(
     X,
@@ -60,9 +53,6 @@ X_train, X_test, y_train, y_test = train_test_split(
     random_state=42
 )
 
-# ==========================================
-# TRAIN MODEL
-# ==========================================
 
 model = RandomForestClassifier(
     n_estimators=100,
@@ -71,15 +61,11 @@ model = RandomForestClassifier(
 
 model.fit(X_train, y_train)
 
-# ==========================================
-# PREDICTIONS
-# ==========================================
+
 
 y_pred = model.predict(X_test)
 
-# ==========================================
-# EVALUATION
-# ==========================================
+
 
 accuracy = accuracy_score(y_test, y_pred)
 precision = precision_score(y_test, y_pred)
@@ -94,9 +80,7 @@ print(f"Recall    : {recall:.4f}")
 print(f"F1 Score  : {f1:.4f}")
 print(f"ROC AUC   : {roc_auc:.4f}")
 
-# ==========================================
-# CONFUSION MATRIX
-# ==========================================
+
 
 cm = confusion_matrix(y_test, y_pred)
 
@@ -106,9 +90,7 @@ disp.plot()
 plt.title("Credit Scoring Model - Confusion Matrix")
 plt.show()
 
-# ==========================================
-# SAMPLE PREDICTION
-# ==========================================
+
 
 sample_customer = X_test[0].reshape(1, -1)
 
@@ -120,7 +102,17 @@ else:
     print("\nCustomer is NOT CREDITWORTHY")
 
 Output
-https://colab.research.google.com/github/kumarsusheel7497-collab/CODSOFT/blob/main/credit_scoring_model.ipynb#scrollTo=tgIkfoxFtQTE&fullscreenOutput=true
+ ========== CREDIT SCORING RESULTS ==========
+Accuracy  : 0.8550
+Precision : 0.7843
+Recall    : 0.9195
+F1 Score  : 0.8466
+ROC AUC   : 0.8624
+<img width="498" height="455" alt="17816221938433201621025993536219" src="https://github.com/user-attachments/assets/bb5277f2-99a0-4711-92fc-586c3adb4b59" />
+
+
+Customer is NOT CREDITWORTHY
+
 
 
 Results
